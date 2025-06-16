@@ -6,9 +6,9 @@ import os
 def exibir_logo_ohana():
     
     print("   ____   _   _    _      _   _    __     ")
-    print("  / __ \ | | | |  /\ \   | | | |  /  \    ")
-    print(" | |  | || |_| | / _\ \  | |_| | / _\ \   ")
-    print(" | |__| ||  _  |/ ___\ \ |  _  |/ ___\ \  ")
+    print("  / __ \ | | | |  /  \   | | | |  /  \    ")
+    print(" | |  | || |_| | / _\ \  | \ | | / _\ \   ")
+    print(" | |__| ||  _  |/ ___\ \ |  \  |/ ___\ \  ")
     print("  \____/ |_| |_/_/    \_\|_| |_/_/    \_\ ")
     print("                                       ")
     print("     🌺 Bem-vindo ao Restaurante Ohana 🌴")
@@ -409,11 +409,11 @@ while(opcaoMenu != 5):
                     print("❌ Mesa não encontrada!")
 
             def adicionar_mesa():
-                nome_mesa = ""
-                numero_telefone = ""
+                nome_mesa = ''
+                numero_telefone = ''
 
                 criar_mesa = int(input("🆕 Informe o número da nova mesa: "))
-                while any(mesa["número da mesa"] == criar_mesa for mesa in mesas):
+                while any(mesa['número da mesa'] == criar_mesa for mesa in mesas):
                     criar_mesa = int(input("⚠️ Mesa já existente! Informe outro número: "))
 
                 situacao_mesa = input("🪑 Situação (livre, ocupada, reservada): ").lower()
@@ -428,10 +428,10 @@ while(opcaoMenu != 5):
                         numero_telefone = input("❌ Número inválido! Tente novamente: ")
 
                 nova_mesa = {
-                    "número da mesa": criar_mesa,
-                    "situação da mesa": situacao_mesa,
-                    "nome da mesa reservada": nome_mesa,
-                    "número de telefone": numero_telefone
+                    'número da mesa': criar_mesa,
+                    'situação da mesa': situacao_mesa,
+                    'nome da mesa reservada': nome_mesa,
+                    'número de telefone': numero_telefone
                 }
 
                 mesas.append(nova_mesa)
@@ -441,13 +441,13 @@ while(opcaoMenu != 5):
             def edicao_mesa():
                 editar_mesa = int(input("✏️ Informe o número da mesa que deseja editar: "))
                 for mesa in mesas:
-                    if mesa["número da mesa"] == editar_mesa:
+                    if mesa['número da mesa'] == editar_mesa:
                         situacao_nova = input("🪑 Nova situação (livre, ocupada, reservada): ").lower()
                         while situacao_nova not in ["livre", "ocupada", "reservada"]:
                             print("❗ Opção inválida.")
                             situacao_nova = input("Digite: livre, ocupada ou reservada: ").lower()
 
-                        if situacao_nova in ["reservada", "ocupada"]:
+                        if situacao_nova in ['reservada', 'ocupada']:
                             novo_nome = input("👤 Novo nome: ")
                             novo_telefone = input("📞 Novo telefone: ")
                             while novo_telefone.isdigit() and len(novo_telefone) != 11:
@@ -456,9 +456,9 @@ while(opcaoMenu != 5):
                             novo_nome = ""
                             novo_telefone = ""
 
-                        mesa["situação da mesa"] = situacao_nova
-                        mesa["Nome da mesa reservada"] = novo_nome
-                        mesa["número de telefone"] = novo_telefone
+                        mesa['situação da mesa'] = situacao_nova
+                        mesa['nome da mesa reservada'] = novo_nome
+                        mesa['número de telefone'] = novo_telefone
                         adicionar_json()
                         print("✅ Mesa atualizada com sucesso!")
                         break
@@ -468,7 +468,7 @@ while(opcaoMenu != 5):
             def deletar_mesa():
                 numero_mesa = int(input("🗑️ Informe o número da mesa para deletar: "))
                 for mesa in mesas:
-                    if mesa["número da mesa"] == numero_mesa:
+                    if mesa['número da mesa'] == numero_mesa:
                         mesas.remove(mesa)
                         adicionar_json()
                         print("🗑️ Mesa deletada com sucesso!")
@@ -490,18 +490,6 @@ while(opcaoMenu != 5):
             elif opcaoMesa == 6:
                 print("🔙 Retornando ao menu principal...")
                 break
-
-
-
-
-
-    
-
-
-
-
-
-
 
 
 
