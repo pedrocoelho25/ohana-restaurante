@@ -319,7 +319,7 @@ while(opcaoMenu != 5):
                 with open(arquivo_json, "w", encoding='utf-8') as arquivo:
                     json.dump(pedidos, arquivo,ensure_ascii=False, indent=4)
                 print("✅ Pedido removido com sucesso!\n")
-                return
+                
         print("🚫 Pedido não encontrado!\n")
 
     if opcaoMenu == 2:
